@@ -1,14 +1,14 @@
 #!/bin/bash
 #chmod u+x *.sh
 #rm -rf bin
-#CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./Toos/ExcelToCsharp.go
-#CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./Toos/ExcelToCsharp.go
-CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build ./Toos/ExcelToCsharp
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./Toos/ExcelToCsharp
-CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build ./Toos/ExcelToGo
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./Toos/ExcelToGo
-CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build ./Toos/ExcelToGoSys
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./Toos/ExcelToGoSys
+#CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./examples/ExcelToCsharp.go
+#CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./examples/ExcelToCsharp.go
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build ./examples/ExcelToCsharp
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./examples/ExcelToCsharp
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build ./examples/ExcelToGo
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./examples/ExcelToGo
+CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build ./examples/ExcelToGoSys
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build ./examples/ExcelToGoSys
 #输出路径bin
 output_dir="/Users/yh/Documents/github/crazy-elimination/Assets/ExcelTo"
 

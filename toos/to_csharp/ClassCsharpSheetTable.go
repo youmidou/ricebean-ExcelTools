@@ -1,8 +1,8 @@
 package to_csharp
 
 import (
-	"ExcelToolGenerationConfig/TudouFramework/sys_base"
 	"fmt"
+	"ricebean-ExcelTools/pkg/sys_base"
 )
 
 const (
