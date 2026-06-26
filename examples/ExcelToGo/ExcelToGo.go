@@ -6,6 +6,7 @@ added by yh @ 2023/6/25 17:35
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -16,6 +17,17 @@ import (
 )
 
 func main() {
+	// 定义命令行参数：参数名、默认值、参数说明
+	go_output_dir := flag.String("go_output_dir", "./config/cfg_go", "Go 文件的输出目录")
+	json_output_dir := flag.String("json_output_dir", "./config/cfg_json", "JSON 文件的输出目录")
+
+	// 必须调用 Parse() 来解析传入的参数
+	flag.Parse()
+
+	// 注意：flag.String 返回的是指针，使用时需要加 * 取值
+	fmt.Printf("Go 输出目录: %s\n", *go_output_dir)
+	fmt.Printf("JSON 输出目录: %s\n", *json_output_dir)
+
 	m := &to_go.ExcelToGoMain{}
 	dirPath := "./excel"
 	// 检查文件夹是否存在
@@ -59,6 +71,13 @@ func main() {
 	///
 	go_output := "./config/cfg_go"     //"./bin/cfg_go"
 	json_output := "./config/cfg_json" //"./bin/cfg_json"
+	if 0 < len(*go_output_dir) {
+		go_output = *go_output_dir
+	}
+	if 0 < len(*json_output_dir) {
+		json_output = *json_output_dir
+	}
+
 	m.DeleteFiles(go_output, ".go")
 	m.DeleteFiles(json_output, ".json")
 
