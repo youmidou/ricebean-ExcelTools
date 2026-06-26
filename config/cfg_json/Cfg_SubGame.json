@@ -1,0 +1,18 @@
+{
+	"Config":{
+		"100100":{"Id":100100,"SubGameId":1001,"Name":"拖拉机-初级","RoomLevel":0,"MiniBet":200,"MaxBet":1000},
+		"100101":{"Id":100101,"SubGameId":1001,"Name":"拖拉机-中级","RoomLevel":1,"MiniBet":1000,"MaxBet":5000},
+		"100102":{"Id":100102,"SubGameId":1001,"Name":"拖拉机-高级","RoomLevel":2,"MiniBet":5000,"MaxBet":10000},
+		"100103":{"Id":100103,"SubGameId":1001,"Name":"拖拉机-特级","RoomLevel":3,"MiniBet":10000,"MaxBet":100000},
+		"100200":{"Id":100200,"SubGameId":1002,"Name":"摸鱼-初级","RoomLevel":0,"MiniBet":200,"MaxBet":1000},
+		"100201":{"Id":100201,"SubGameId":1002,"Name":"摸鱼-中级","RoomLevel":1,"MiniBet":1000,"MaxBet":5000},
+		"100202":{"Id":100202,"SubGameId":1002,"Name":"摸鱼-高级","RoomLevel":2,"MiniBet":5000,"MaxBet":10000},
+		"100203":{"Id":100203,"SubGameId":1002,"Name":"摸鱼-特级","RoomLevel":3,"MiniBet":10000,"MaxBet":100000}
+	},
+
+	"Item":{
+		"1001":{"SubGameId":1001,"Name":"拖拉机","AssetName":"ZJH","Icon":"zjh_icon"},
+		"1002":{"SubGameId":1002,"Name":"摸鱼","AssetName":"Fish","Icon":"fish_icon"}
+	}
+
+}

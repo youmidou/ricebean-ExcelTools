@@ -213,7 +213,7 @@ func (t *ClassJsonSheetTable) DoCfgData(rows [][]string, isbool bool) {
 					colCell = t.GetcTypeValue(index)
 				} else {
 					colCell = row[index]
-					if !sys_base.StringIsNullOrEmpty(colCell) {
+					if sys_base.StringIsNullOrEmpty(colCell) {
 						colCell = t.GetcTypeValue(index)
 					}
 				}
