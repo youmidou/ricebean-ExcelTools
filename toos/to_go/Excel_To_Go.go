@@ -149,8 +149,6 @@ func (t *ExcelToGo) SaveCsharpFile() {
 	if err != nil {
 		fmt.Println(fmt.Sprintf("失败 配置文件%s err=%s ", outputFile, err))
 		return
-	} else {
-		fmt.Println("配置文件已生成", outputFile)
 	}
 
 	fmt.Println("配置文件已生成", outputFile)

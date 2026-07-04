@@ -8,6 +8,9 @@ const (
 	t_int      = "int"
 	t_ints     = "int[]"
 	t_int2s    = "int[][]"
+	t_int64    = "int64"
+	t_int64s   = "int64[]"
+	t_int642s  = "int64[][]"
 	t_float    = "float"
 	t_floats   = "[]float"
 	t_float2s  = "[][]float"
@@ -88,6 +91,12 @@ func (t *ClassGoSheetTable) GetcTypeName(index int) string {
 		ctype = "[]int32"
 	case t_int2s:
 		ctype = "[][]int32"
+	case t_int64:
+		ctype = "int64"
+	case t_int64s:
+		ctype = "[]int64"
+	case t_int642s:
+		ctype = "[][]int64"
 	case t_float:
 		ctype = "float64"
 	case t_floats:
@@ -121,6 +130,12 @@ func (t *ClassGoSheetTable) GetcTypeValue(index int) string {
 	case t_ints:
 		return "0"
 	case t_int2s:
+		return "0"
+	case t_int64:
+		return "0"
+	case t_int64s:
+		return "0"
+	case t_int642s:
 		return "0"
 	case t_float:
 		return "0f"

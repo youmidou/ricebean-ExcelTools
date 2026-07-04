@@ -19,18 +19,6 @@ import (
 	_ "github.com/xuri/excelize/v2"
 )
 
-const (
-	t_int      = "int"
-	t_ints     = "int[]"
-	t_int2s    = "int[][]"
-	t_float    = "float"
-	t_floats   = "float[]"
-	t_float2s  = "float[][]"
-	t_string   = "string"
-	t_strings  = "string[]"
-	t_string2s = "string[][]"
-)
-
 type ExcelToJson struct {
 	mutex    sync.Mutex
 	F        *excelize.File
@@ -158,10 +146,7 @@ func (t *ExcelToJson) SaveCsharpFile() {
 	if err != nil {
 		fmt.Println(fmt.Sprintf("失败 配置文件%s err=%s ", outputFile, err))
 		return
-	} else {
-		fmt.Println("配置文件已生成", outputFile)
 	}
-
 	fmt.Println("配置文件已生成", outputFile)
 	t.file_content = ""
 }

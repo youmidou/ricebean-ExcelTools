@@ -9,6 +9,21 @@ import (
 	"sync"
 )
 
+const (
+	t_int      = "int"
+	t_ints     = "int[]"
+	t_int2s    = "int[][]"
+	t_int64    = "int64"
+	t_int64s   = "int64[]"
+	t_int642s  = "int64[][]"
+	t_float    = "float"
+	t_floats   = "float[]"
+	t_float2s  = "float[][]"
+	t_string   = "string"
+	t_strings  = "string[]"
+	t_string2s = "string[][]"
+)
+
 type ClassJsonSheetTable struct {
 	mutex               sync.Mutex
 	FileName            string //文件名字
@@ -78,6 +93,12 @@ func (t *ClassJsonSheetTable) GetCTypeName(index int) string {
 		ctype = "[]int32"
 	case t_int2s:
 		ctype = "[][]int32"
+	case t_int64:
+		ctype = "int64"
+	case t_int64s:
+		ctype = "[]int64"
+	case t_int642s:
+		ctype = "[][]int64"
 	case t_float:
 		ctype = "float64"
 	case t_floats:
@@ -111,6 +132,12 @@ func (t *ClassJsonSheetTable) GetcTypeValue(index int) string {
 	case t_ints:
 		return "0"
 	case t_int2s:
+		return "0"
+	case t_int64:
+		return "0"
+	case t_int64s:
+		return "0"
+	case t_int642s:
 		return "0"
 	case t_float:
 		return "0f"
@@ -250,6 +277,56 @@ func (t *ClassJsonSheetTable) DoCfgData(rows [][]string, isbool bool) {
 							}
 							var dv1 []int32
 							dv1, _ = sys_string.SplitToInt32(v1, ",")
+							data = append(data, dv1)
+						}
+
+					}
+				}
+				str, _ := sys_json.MarshalToString(data)
+				colCell = str
+			case t_int64:
+				if index > len(row)-1 {
+					//没有值根据类型 给默认值
+					colCell = t.GetcTypeValue(index)
+				} else {
+					colCell = row[index]
+					if sys_base.StringIsNullOrEmpty(colCell) {
+						colCell = t.GetcTypeValue(index)
+					}
+				}
+			case t_int64s:
+				var data []int64
+				if index > len(row)-1 {
+					//没有值根据类型 给默认值
+					colCell = "" //t.GetcTypeValue(index)
+				} else {
+					colCell = row[index]
+					if !sys_base.StringIsNullOrEmpty(colCell) {
+						//解析二维数组
+						var dv1 []int64
+						dv1, _ = sys_string.SplitToInt64(colCell, ",")
+						data = dv1
+
+					}
+				}
+				str, _ := sys_json.MarshalToString(data)
+				colCell = str
+			case t_int642s:
+				var data [][]int64
+				if index > len(row)-1 {
+					//没有值根据类型 给默认值
+					colCell = "" //t.GetcTypeValue(index)
+				} else {
+					colCell = row[index]
+					if !sys_base.StringIsNullOrEmpty(colCell) {
+						//解析二维数组
+						v1s := strings.Split(colCell, ";")
+						for _, v1 := range v1s {
+							if v1 == "" {
+								continue
+							}
+							var dv1 []int64
+							dv1, _ = sys_string.SplitToInt64(v1, ",")
 							data = append(data, dv1)
 						}
 
