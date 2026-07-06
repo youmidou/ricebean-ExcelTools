@@ -98,11 +98,11 @@ func (t *ClassGoSheetTable) GetcTypeName(index int) string {
 	case t_int642s:
 		ctype = "[][]int64"
 	case t_float:
-		ctype = "float64"
+		ctype = "float32"
 	case t_floats:
-		ctype = "[]float64"
+		ctype = "[]float32"
 	case t_float2s:
-		ctype = "[][]float64"
+		ctype = "[][]float32"
 	case t_string:
 		ctype = "string"
 	case t_strings:

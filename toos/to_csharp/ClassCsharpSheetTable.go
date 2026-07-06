@@ -9,12 +9,15 @@ const (
 	t_int      = "int"
 	t_ints     = "int[]"
 	t_int2s    = "int[][]"
+	t_int64    = "int64"
+	t_int64s   = "int64[]"
+	t_int642s  = "int64[][]"
 	t_float    = "float"
-	t_floats   = "float[]"
-	t_float2s  = "float[][]"
+	t_floats   = "[]float"
+	t_float2s  = "[][]float"
 	t_string   = "string"
-	t_strings  = "string[]"
-	t_string2s = "string[][]"
+	t_strings  = "[]string"
+	t_string2s = "[][]string"
 )
 
 type ClassCsharpSheetTable struct {
@@ -271,6 +274,17 @@ func (t *ClassCsharpSheetTable) DoCfgData(rows [][]string) {
 			ctype := t.GetCType(index)
 			switch ctype {
 			case t_int:
+				if index > len(row)-1 {
+					//没有值根据类型 给默认值
+					colCell = t.GetcTypeValue(index)
+				} else {
+					colCell = row[index]
+
+					if sys_base.StringIsNullOrEmpty(colCell) {
+						colCell = t.GetcTypeValue(index)
+					}
+				}
+			case t_int64:
 				if index > len(row)-1 {
 					//没有值根据类型 给默认值
 					colCell = t.GetcTypeValue(index)
